@@ -1,0 +1,219 @@
+/* Risk page — all classes are prefixed "rk-" so they cannot clash with your existing CSS.
+   Colours fall back to sensible defaults if your theme variables are not defined. */
+
+.rk-page {
+  --rk-low: #2f7d4f;
+  --rk-low-tint: #eaf5ee;
+  --rk-medium: #b7791f;
+  --rk-medium-tint: #fdf3e1;
+  --rk-high: #c0392b;
+  --rk-high-tint: #fbeaea;
+
+  --rk-surface: var(--card-bg, #ffffff);
+  --rk-border: var(--border-color, #e3e7e5);
+  --rk-text: var(--text-color, #1f2a24);
+  --rk-muted: var(--text-muted, #66736b);
+  --rk-track: #e8ecea;
+}
+
+/* ---------- Overall result card ---------- */
+
+.rk-card {
+  border: 1px solid var(--rk-border);
+  border-left-width: 6px;
+  border-radius: 14px;
+  padding: 24px 28px;
+  margin-bottom: 20px;
+  background: var(--rk-surface);
+}
+
+.rk-card-low    { border-left-color: var(--rk-low);    background: var(--rk-low-tint); }
+.rk-card-medium { border-left-color: var(--rk-medium); background: var(--rk-medium-tint); }
+.rk-card-high   { border-left-color: var(--rk-high);   background: var(--rk-high-tint); }
+
+.rk-eyebrow {
+  display: block;
+  font-size: 0.9rem;
+  color: var(--rk-muted);
+  margin-bottom: 4px;
+}
+
+.rk-title {
+  margin: 0 0 8px;
+  font-size: 2rem;
+  line-height: 1.2;
+}
+
+.rk-card-low .rk-title    { color: var(--rk-low); }
+.rk-card-medium .rk-title { color: var(--rk-medium); }
+.rk-card-high .rk-title   { color: var(--rk-high); }
+
+.rk-description {
+  margin: 0 0 22px;
+  max-width: 60ch;
+  line-height: 1.55;
+  color: var(--rk-text);
+}
+
+/* ---------- Three-step meter ---------- */
+
+.rk-meter {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  max-width: 420px;
+}
+
+.rk-segment-bar {
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.rk-segment-label {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  color: var(--rk-muted);
+}
+
+.rk-segment.is-active .rk-segment-label {
+  color: var(--rk-text);
+  font-weight: 600;
+}
+
+.rk-segment-low.is-active .rk-segment-bar    { background: var(--rk-low); }
+.rk-segment-medium.is-active .rk-segment-bar { background: var(--rk-medium); }
+.rk-segment-high.is-active .rk-segment-bar   { background: var(--rk-high); }
+
+/* ---------- Factor breakdown ---------- */
+
+.rk-panel {
+  border: 1px solid var(--rk-border);
+  border-radius: 14px;
+  padding: 22px 28px;
+  margin-bottom: 20px;
+  background: var(--rk-surface);
+}
+
+.rk-panel-title {
+  margin: 0 0 16px;
+  font-size: 1.1rem;
+}
+
+.rk-factors {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 20px;
+}
+
+.rk-factor-head {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.rk-factor-name {
+  color: var(--rk-muted);
+  flex: 1;
+}
+
+.rk-factor-value {
+  font-size: 1.05rem;
+}
+
+.rk-pill {
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 2px 10px;
+  border-radius: 999px;
+}
+
+.rk-pill-low    { color: var(--rk-low);    background: var(--rk-low-tint); }
+.rk-pill-medium { color: var(--rk-medium); background: var(--rk-medium-tint); }
+.rk-pill-high   { color: var(--rk-high);   background: var(--rk-high-tint); }
+
+.rk-track {
+  position: relative;
+  height: 8px;
+  border-radius: 999px;
+  background: var(--rk-track);
+}
+
+.rk-fill {
+  height: 100%;
+  border-radius: 999px;
+  transition: width 0.4s ease;
+}
+
+.rk-fill-low    { background: var(--rk-low); }
+.rk-fill-medium { background: var(--rk-medium); }
+.rk-fill-high   { background: var(--rk-high); }
+
+/* Marks where Medium and High start */
+.rk-tick {
+  position: absolute;
+  top: -3px;
+  width: 2px;
+  height: 14px;
+  background: var(--rk-text);
+  opacity: 0.35;
+  transform: translateX(-1px);
+}
+
+.rk-factor-note {
+  margin: 8px 0 0;
+  font-size: 0.85rem;
+  color: var(--rk-muted);
+}
+
+.rk-condition {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-top: 22px;
+  padding-top: 16px;
+  border-top: 1px solid var(--rk-border);
+}
+
+.rk-condition span {
+  color: var(--rk-muted);
+}
+
+/* ---------- Actions ---------- */
+
+.rk-actions {
+  display: flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+@media (max-width: 600px) {
+  .rk-card,
+  .rk-panel {
+    padding: 18px 16px;
+  }
+
+  .rk-title {
+    font-size: 1.6rem;
+  }
+
+  .rk-actions {
+    flex-direction: column-reverse;
+  }
+
+  .rk-actions button {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rk-fill {
+    transition: none;
+  }
+}
