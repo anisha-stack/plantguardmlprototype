@@ -13,7 +13,7 @@ function Dashboard() {
 
     try {
       const response = await fetch(
-        "http://127.0.0.1:8000/api/history/"
+        "https://plantguardmlprototype-3.onrender.com/api/history/"
       );
 
       const data = await response.json();
