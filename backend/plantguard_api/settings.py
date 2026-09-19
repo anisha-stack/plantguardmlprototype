@@ -12,7 +12,7 @@ DEBUG = True
 ALLOWED_HOSTS = [
     '127.0.0.1',
     'localhost',
-    'plantguardmlprototype-1.onrender.com',
+    'plantguardmlprototype-3.onrender.com',
 ]
 
 
