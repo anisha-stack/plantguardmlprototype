@@ -1,0 +1,8 @@
+Django==6.0.2
+django-cors-headers==4.9.0
+djangorestframework==3.18.1
+gunicorn
+numpy==2.4.6
+pandas==3.0.3
+scikit-learn==1.8.0
+joblib==1.5.3
