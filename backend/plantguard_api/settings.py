@@ -1,147 +1,189 @@
 from pathlib import Path
 
+# ============================================================
+# BASE DIRECTORY
+# ============================================================
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-plantguard-development-key-change-in-production'
+# ============================================================
+# SECURITY
+# ============================================================
 
-# SECURITY WARNING: don't run with debug turned on in production!
+SECRET_KEY = "django-insecure-plantguard-ai-secret-key-change-this"
+
 DEBUG = True
 
 ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'localhost',
-    'plantguardmlprototype-3.onrender.com',
+    "plantguardmlprototype-3.onrender.com",
+    "localhost",
+    "127.0.0.1",
 ]
 
 
-# Application definition
+# ============================================================
+# APPLICATIONS
+# ============================================================
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
+    "django.contrib.admin",
+    "django.contrib.auth",
+    "django.contrib.contenttypes",
+    "django.contrib.sessions",
+    "django.contrib.messages",
+    "django.contrib.staticfiles",
 
     # Third-party apps
-    'rest_framework',
-    'corsheaders',
+    "corsheaders",
+    "rest_framework",
 
     # PlantGuard apps
-    'prediction',
-    'history',
+    "prediction",
+    "history",
 ]
 
 
-# Middleware
+# ============================================================
+# MIDDLEWARE
+# ============================================================
 
 MIDDLEWARE = [
-    'corsheaders.middleware.CorsMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
 
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    "django.middleware.security.SecurityMiddleware",
+    "django.contrib.sessions.middleware.SessionMiddleware",
+
+    "django.middleware.common.CommonMiddleware",
+
+    "django.middleware.csrf.CsrfViewMiddleware",
+
+    "django.contrib.auth.middleware.AuthenticationMiddleware",
+    "django.contrib.messages.middleware.MessageMiddleware",
+
+    "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
 
 
-ROOT_URLCONF = 'plantguard_api.urls'
+# ============================================================
+# URL CONFIGURATION
+# ============================================================
+
+ROOT_URLCONF = "plantguard_api.urls"
 
 
-# Templates
+# ============================================================
+# TEMPLATES
+# ============================================================
 
 TEMPLATES = [
     {
-        'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
-        'APP_DIRS': True,
-        'OPTIONS': {
-            'context_processors': [
-                'django.template.context_processors.request',
-                'django.contrib.auth.context_processors.auth',
-                'django.contrib.messages.context_processors.messages',
+        "BACKEND": "django.template.backends.django.DjangoTemplates",
+
+        "DIRS": [],
+
+        "APP_DIRS": True,
+
+        "OPTIONS": {
+            "context_processors": [
+                "django.template.context_processors.request",
+                "django.contrib.auth.context_processors.auth",
+                "django.contrib.messages.context_processors.messages",
             ],
         },
     },
 ]
 
 
-WSGI_APPLICATION = 'plantguard_api.wsgi.application'
+# ============================================================
+# WSGI
+# ============================================================
+
+WSGI_APPLICATION = "plantguard_api.wsgi.application"
 
 
-# Database
+# ============================================================
+# DATABASE
+# ============================================================
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
     }
 }
 
 
-# Password validation
+# ============================================================
+# PASSWORD VALIDATION
+# ============================================================
 
 AUTH_PASSWORD_VALIDATORS = [
     {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+        "NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+        "NAME": "django.contrib.auth.password_validation.MinimumLengthValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.CommonPasswordValidator",
     },
     {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+        "NAME": "django.contrib.auth.password_validation.NumericPasswordValidator",
     },
 ]
 
 
-# Internationalization
+# ============================================================
+# INTERNATIONALIZATION
+# ============================================================
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = 'Asia/Kolkata'
+TIME_ZONE = "Asia/Kolkata"
 
 USE_I18N = True
 
 USE_TZ = True
 
 
-# Static files
+# ============================================================
+# STATIC FILES
+# ============================================================
 
-STATIC_URL = 'static/'
+STATIC_URL = "static/"
 
-
-# Default primary key field type
-
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-
-# Django REST Framework
-
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': [
-        'rest_framework.renderers.JSONRenderer',
-        'rest_framework.renderers.BrowsableAPIRenderer',
-    ],
-}
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 
-# CORS settings
+# ============================================================
+# DEFAULT PRIMARY KEY
+# ============================================================
+
+DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+
+# ============================================================
+# CORS CONFIGURATION
+# ============================================================
+
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:3000',
-    'http://127.0.0.1:3000',
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
-    'http://localhost:5174',
-    'http://127.0.0.1:5174',
-    'http://localhost:5175',
-    'http://127.0.0.1:5175',
+    "https://plantguardmlprototype.vercel.app",
+    "http://localhost:5173",
 ]
+
+
+# ============================================================
+# CSRF CONFIGURATION
+# ============================================================
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://plantguardmlprototype.vercel.app",
+]
+
+
+# ============================================================
+# CORS OPTIONS
+# ============================================================
+
+CORS_ALLOW_CREDENTIALS = True
